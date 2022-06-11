@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import HomeView from "./Views/HomeView"
+import DetailProduct from "./Views/DetailProduct"
+import Navigation from "./components/Navigation"
+import "./Stylerest.css"
+import Barra from "./components/Barra"
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+    <Router>
+    <Barra/>
+      {/* <div className="container mt-4"> */}
+      <Routes>
+        <Route path="/" element={<Navigation/>}> </Route>
+        
+      <Route path="/menu" element={<HomeView/>}/>
+      <Route path="/detalleproducto/:catId/:prodId" element={<DetailProduct/>}/>
 
-export default App;
+      </Routes>      
+      {/* </div> */}
+
+    </Router>
+</>
+  )
+}

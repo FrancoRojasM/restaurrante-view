@@ -1,0 +1,6 @@
+https://6287cf1e7864d2883e8cefaa.mockapi.io/categorias/14/productos
+
+
+const getCategories=async(id=14)=>{
+    try {
+        const {data,status}= await axios.get(`${URL}/categorias/${id}/productos`);
